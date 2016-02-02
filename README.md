@@ -14,13 +14,11 @@ search.getList('search-term(s)',num-images,'flickr-key',(error,data)=>{
 
         var flic = JSON.parse(data);
 });
-
-</code>
-<ol>
+</code><ul>
 <li>search-term(s) : a string ex 'tower' or an array of strings [ 'tower' , 'clock' ,….]</li>
 <li>num-images : number of images to be returned. [1-500]</li>
 <li>flickr-key : api key associated with your flickr account</li>
-</ol>
+</ul>
 
 <h2>License</h2>
  Copyright (c) 2016  Mark Otten
