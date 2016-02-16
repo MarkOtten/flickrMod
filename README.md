@@ -1,19 +1,26 @@
 <h2>flickrMod</h2>
- This Nodejs module simplifies searching flickr for images.
+ This Nodejs module simplifies searching flickr for images. It also Extends EventEmitter, and exposes on: ‘data’ and ’end’ to the user.
   Upon completion it returns a JSON containing image information that flickr has supplied.
- If there is an error, it is a flickr error message,  <a href="https://www.flickr.com/services/api/flickr.photos.search.html"> click here for error message details </a>
+ If there is an error, it is a flickr error message,  <a href="https://www.flickr.com/services/api/"> look up error message here </a>
 
 <h2>Example</h2>
 <code>
-const search = require('flickrMod');
+const flic = require('flickrMod');
 
-search.getList('search-term(s)',num-images,'flickr-key',(error,data)=>{
+var search = new flic(‘flickr-key’);
+
+search.searchImages(‘search-term(s)',num-images,(error,data)=>{
 
         if(error)
         	//handle error
 
-        var flic = JSON.parse(data);
+        var img = JSON.parse(data);
 });
+
+
+search.on('data', (d)=>{....});
+search.on(‘end’, ()=>{......});
+
 </code><ul>
 <li>search-term(s) : a string ex 'tower' or an array of strings [ 'tower' , 'clock' ,….]</li>
 <li>num-images : number of images to be returned. [1-500]</li>
