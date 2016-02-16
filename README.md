@@ -4,8 +4,7 @@
  If there is an error, it is a flickr error message,  <a href="https://www.flickr.com/services/api/"> look up error message here </a>
 
 <h2>Example</h2>
-<code>
-const flic = require('flickrMod');
+<code>const flic = require('flickrMod');
 
 var search = new flic(‘flickr-key’);
 
@@ -19,6 +18,7 @@ search.searchImages(‘search-term(s)',num-images,(error,data)=>{
 
 
 search.on('data', (d)=>{....});
+
 search.on(‘end’, ()=>{......});
 
 </code><ul>
