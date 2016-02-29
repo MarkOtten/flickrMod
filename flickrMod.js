@@ -3,8 +3,8 @@ const eventEmitter = require('events');
 const util = require('util');
 
 //pieces of the flickr url
-const flicUrlBegin = 'https://api.flickr.com/services/rest/?method=flickr.';
-const flicUrlEnd = '&format=json&nojsoncallback=?';
+const flicUrlBegin = 'https://api.flickr.com/services/rest/?method=flickr.',flicUrlEnd = '&format=json&nojsoncallback=?';
+
 
 
 //constructor
@@ -20,6 +20,12 @@ module.exports = Flickr;
 
 
 
+Flickr.prototype.custom = function(urlPieces,callback){
+        this.getInfo(flicUrlBegin + adjustTerms(urlPieces) + '&api_key=' + this.key + flicUrlEnd,callback);
+}
+
+
+
 Flickr.prototype.searchImages = function(searchTerms,numImages,callback){
 	this.getInfo(flicUrlBegin + 'photos.search&api_key=' + this.key + '&tags=' + adjustTerms(searchTerms) + '&per_page=' + numImages + flicUrlEnd,callback);
 }
@@ -30,7 +36,6 @@ Flickr.prototype.getInfo = function(searchString,callback){
 	var data = "";
         https.get(searchString, (res) => {
                 res.on('data', (d) => {
-                        console.log('should be emitting data');
                         this.emit('data',d);
                         data += d;
                 });
