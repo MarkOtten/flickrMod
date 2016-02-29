@@ -6,6 +6,7 @@
 <h2>Example</h2>
 <h3>Searching for images</h3>
 <code>const flic = require('flickrMod');
+
 var search = new flic(‘flickr-key’);
 
 search.searchImages(‘search-term(s)',num-images,(error,data)=>{
