@@ -8,7 +8,8 @@
 <code>const flic = require('flickrMod');
 var search = new flic(‘flickr-key’);
 search.searchImages(‘search-term(s)',num-images,(error,data)=>{
-        if(error)
+        
+	if(error)
         	//handle error
 
         var img = JSON.parse(data);
@@ -20,11 +21,12 @@ search.on(‘end’, ()=>{......});
 <li>num-images : number of images to be returned. [1-500]</li>
 <li>flickr-key : api key associated with your flickr account</li>
 </ul>
-<h3>Other methods</h3>
+<h3>Other API</h3>
  The rest of the flicker api can be used in a similar manner by using the custom function. The first argument is an array that consists of the flickr method that is to be 
 invoked followed by the accompanying method arguments.
 <code>search.custom([‘flickr_api_method’,’method_argument0',....,’method_argument_n’],(error,data)=>{
-        if(error)
+        
+	if(error)
         	//handle error
 
         var val = JSON.parse(data);
