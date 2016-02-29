@@ -29,6 +29,7 @@ search.on(‘end’, ()=>{......});
  The rest of the flicker api can be used in a similar manner by using the custom function. The first argument is an array that consists of the flickr method that is to be 
 invoked followed by the accompanying method arguments.
 <code>
+
 search.custom([‘flickr_api_method’,’method_argument0',....,’method_argument_n’],(error,data)=>{
 
 	if(error)
