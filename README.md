@@ -16,7 +16,9 @@ search.searchImages(‘search-term(s)',num-images,(error,data)=>{
 
         var img = JSON.parse(data);
 });
+
 search.on('data', (d)=>{....});
+
 search.on(‘end’, ()=>{......});
 </code><ul>
 <li>search-term(s) : a string ex 'tower' or an array of strings [ 'tower' , 'clock' ,….]</li>
