@@ -1,0 +1,12 @@
+{
+	"name" : "flickrMod",
+	"author" : "Mark Otten",
+	"version" : "0.0.2",
+	"license" : "MIT",
+	"scripts" : {
+		"test" : "./node_modules/.bin/jasmine-node spec"
+	},
+	"dependencies" :{
+		"jasmine-node" : "*"
+	}
+}
