@@ -1,5 +1,5 @@
 <h2>flickrMod</h2>
- This Nodejs module simplifies searching flickr for images and using the flickr api in general. It also Extends EventEmitter, and exposes on: ‘data’ and ’end’ to the user.
+ This Nodejs module simplifies searching flickr for images and using the flickr api in general. It Extends EventEmitter, and exposes on: ‘data’ and ’end’ to the user.
   Upon completion it returns a JSON containing information that flickr has supplied.
  If there is an error, it is a flickr error message,  <a href="https://www.flickr.com/services/api/"> look up error message here </a>
 
@@ -9,8 +9,8 @@
 
 var search = new flic(‘flickr-key’);
 
-search.searchImages(‘search-term(s)',num-images,(error,data)=>{
-        
+search.searchImages(‘search-term(s)',num-images-per-page,(error,data)=>{
+
 	if(error)
         	//handle error
 
@@ -21,13 +21,12 @@ search.on('data', (d)=>{....});
 
 search.on(‘end’, ()=>{......});
 </code><ul>
-<li>search-term(s) : a string ex 'tower' or an array of strings [ 'tower' , 'clock' ,….]</li>
-<li>num-images : number of images to be returned. [1-500]</li>
+<li>search-term(s) : a string ex 'tower' or an array of strings [ 'tower' , 'clock' ,...]</li>
+<li>num-images-per-page : number of images to be returned per page. [1-500]</li>
 <li>flickr-key : api key associated with your flickr account</li>
 </ul>
 <h3>Other API</h3>
- The rest of the flicker api can be used in a similar manner by using the custom function. The first argument is an array that consists of the flickr method that is to be 
-invoked followed by the accompanying method arguments.
+ The rest of the flicker api can be used in a similar manner by using the custom function. The first argument is an array that consists of the flickr method that is to be invoked followed by the accompanying method arguments. The supplied arguments are combined into a flickr url by adding '&' in-between them.
 <code>
 
 search.custom([‘flickr_api_method’,’method_argument0',....,’method_argument_n’],(error,data)=>{
